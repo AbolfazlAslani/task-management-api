@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const path = require('path');
 const http = require('http');
+const { AllRoutes } = require('./routers/router');
 
 class Application{
     #app = express();
@@ -14,7 +15,8 @@ class Application{
         this.configServer();
         this.configDB();
         this.createServer();
-        this.errorHandler()
+        this.manageRoutes();
+        this.errorHandler();
     }
     
     
@@ -67,6 +69,11 @@ class Application{
         
         })
         
+    }
+    
+    manageRoutes(){
+        this.#app.use(AllRoutes)
+    
     }
     
     
