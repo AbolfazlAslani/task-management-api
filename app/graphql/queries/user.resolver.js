@@ -2,6 +2,7 @@ const { GraphQLList, GraphQLObjectType, GraphQLString } = require("graphql");
 const { userModel } = require("../../models/users");
 const { UserType } = require("../typeDefs/user.type");
 
+
 const UserResolver = {
     type : new GraphQLList(UserType),
     resolve : async () =>{
@@ -9,6 +10,8 @@ const UserResolver = {
     }
 
 }
+
+
 
 
 const oneUserResolver = {
